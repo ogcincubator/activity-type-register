@@ -4,7 +4,7 @@
   "description": "A profile of the Activity Type Register Profile for geoprocessing activity types\n",
   "allOf": [
     {
-      "$ref": "https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.json"
+      "$ref": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.json"
     },
     {
       "type": "object",
@@ -17,7 +17,7 @@
   ],
   "x-bblocks-metadata": {
     "itemIdentifier": "ogc.register.schemas.geoprocessing-activity-types-schema",
-    "register": "https://geonovum-labs.github.io/activity-type-register/build/register.json",
+    "register": "https://ogcincubator.github.io/activity-type-register/build/register.json",
     "version": "0.3",
     "dateOfLastChange": "2026-11-04"
   }

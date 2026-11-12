@@ -31,7 +31,7 @@ A general activity type
 #### jsonld
 ```jsonld
 {
-  "@context": "https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/context.jsonld",
+  "@context": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/context.jsonld",
   "id": "Activity",
   "title": "Example of a generic processing activity ",
   "description": "This activity is a general activity described with provenance information.",
@@ -122,7 +122,7 @@ x-jsonld-prefixes:
   rim: https://w3id.org/ogc/rim#
 x-bblocks-metadata:
   itemIdentifier: ogc.register.schemas.activity-types-schema
-  register: https://geonovum-labs.github.io/activity-type-register/build/register.json
+  register: https://ogcincubator.github.io/activity-type-register/build/register.json
   version: '0.3'
   dateOfLastChange: '2026-11-04'
 
@@ -130,8 +130,8 @@ x-bblocks-metadata:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.json)
-* JSON version: [schema.json](https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.yaml)
 
 
 # JSON-LD Context
@@ -340,7 +340,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/context.jsonld)
 
 ## Sources
 
@@ -351,6 +351,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/Geonovum-labs/activity-type-register](https://github.com/Geonovum-labs/activity-type-register)
+* URL: [https://github.com/ogcincubator/activity-type-register](https://github.com/ogcincubator/activity-type-register)
 * Path: `_sources/schemas/activity-types-schema`
 

@@ -84,6 +84,6 @@ ex:eoProcessingRegister a rim:Register ;
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/Geonovum-labs/activity-type-register](https://github.com/Geonovum-labs/activity-type-register)
+* URL: [https://github.com/ogcincubator/activity-type-register](https://github.com/ogcincubator/activity-type-register)
 * Path: `_sources/geoprocessing-activity-types`
 

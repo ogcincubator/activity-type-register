@@ -1,5 +1,5 @@
 {
-  "@context": "https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/context.jsonld",
+  "@context": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/context.jsonld",
   "id": "Activity",
   "title": "Example of a generic processing activity ",
   "description": "This activity is a general activity described with provenance information.",

@@ -35,7 +35,7 @@ A buffer geoprocessing activity type
 #### jsonld
 ```jsonld
 {
-  "@context": "https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/context.jsonld",
+  "@context": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/context.jsonld",
   "id": "Buffer",
   "title": "Create a buffer around a polygon. ",
   "description": "This service shall return a feature collection representing the buffer of geometry InputPolygon at distance BufferDistance. The buffer of a geometry at distance d is the Polygon or MultiPolygon which contains all points within a distance d of the geometry.",
@@ -89,7 +89,7 @@ description: 'A profile of the Activity Type Register Profile for geoprocessing 
 
   '
 allOf:
-- $ref: https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.yaml
+- $ref: https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/activity-types-schema/schema.yaml
 - type: object
   properties:
     usedEntityType:
@@ -97,7 +97,7 @@ allOf:
         of this type.
 x-bblocks-metadata:
   itemIdentifier: ogc.register.schemas.geoprocessing-activity-types-schema
-  register: https://geonovum-labs.github.io/activity-type-register/build/register.json
+  register: https://ogcincubator.github.io/activity-type-register/build/register.json
   version: '0.3'
   dateOfLastChange: '2026-11-04'
 
@@ -105,8 +105,8 @@ x-bblocks-metadata:
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/schema.json)
-* JSON version: [schema.json](https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/schema.yaml)
 
 
 # JSON-LD Context
@@ -315,7 +315,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/context.jsonld)
 
 ## Sources
 
@@ -326,6 +326,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/Geonovum-labs/activity-type-register](https://github.com/Geonovum-labs/activity-type-register)
+* URL: [https://github.com/ogcincubator/activity-type-register](https://github.com/ogcincubator/activity-type-register)
 * Path: `_sources/schemas/geoprocessing-activity-types-schema`
 

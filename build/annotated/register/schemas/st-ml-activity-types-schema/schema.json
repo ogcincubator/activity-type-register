@@ -4,12 +4,12 @@
   "description": "A profile of the Activity Type Register Profile for SpatioTemporal ML Activity Types\n",
   "allOf": [
     {
-      "$ref": "https://geonovum-labs.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/schema.json"
+      "$ref": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/schemas/geoprocessing-activity-types-schema/schema.json"
     }
   ],
   "x-bblocks-metadata": {
     "itemIdentifier": "ogc.register.schemas.st-ml-activity-types-schema",
-    "register": "https://geonovum-labs.github.io/activity-type-register/build/register.json",
+    "register": "https://ogcincubator.github.io/activity-type-register/build/register.json",
     "version": "0.3",
     "dateOfLastChange": "2026-11-04"
   }
