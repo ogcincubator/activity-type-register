@@ -19,9 +19,10 @@ All repositories are under `github.com/ogcincubator`.
 
 **How they interact**
 
-- *Building blocks:* a project register imports the generic register, which imports the RIM (`imports` in `bblocks-config.yaml`). Its root block is `isProfileOf bblocks://ogc.register.activity-types`, so the shapes of the activity type profile apply to every type it defines.
+- *Building blocks:* a project register imports the generic register, which imports the RIM (`imports` in `bblocks-config.yaml`). Its root block is `isProfileOf bblocks://ogc.register.profiles.activity-types`, so the shapes of the activity type profile apply to every type it defines.
 - *Linked data:* every type is a `skos:Concept` **and** an `acttype:ActivityType` (a `rim:RegisterItem`). A specific type points to its generic parent with `skos:broader`; the parent lives in another register and is resolved by IRI.
-- *Hierarchy of abstraction:* family (concept scheme) → generic type → specific type. Generic types state *what* is done, independent of tools (`buffer`, `raster-reprojection`, `workflow`); specific types name a tool, product or workflow that does it (`sqlmm-buffer`, `mangrove-workflow`). The specific types stay as evidence of relevance for the generic one.
+- *Hierarchy of abstraction:* two views of one tree. For browsing, `skos:broader` goes family (concept scheme) → generic type → specific type. For reasoning, `rdfs:subClassOf` goes `acttype:ActivityType` → `geoproc:GeoprocessingActivityType` (each profile adds constraints) → generic type → specific type, so a trace typed with a specific type is also an instance of its generic parent. Not every generic type is geoprocessing: the information-extraction, workflow and ML families specialise `acttype:ActivityType` directly for now. Generic types state *what* is done, independent of tools (`buffer`, `raster-reprojection`, `workflow`); specific types name a tool, product or workflow that does it (`sqlmm-buffer`, `mangrove-workflow`) and stay as evidence of relevance for the generic one.
+- *Repository layout:* in `activity-type-register`, `_sources/profiles/` holds the model (the three profile blocks and their JSON schemas, ids `ogc.register.profiles.*`) and `_sources/types/` holds the content (the generic types, ids `ogc.register.types.*`).
 - *Publication:* each repository builds to GitHub Pages and uploads its ontologies and data to the shared triplestore behind the OSPD Prez instance, one graph per block, replaced on every build. The Prez shows three top-level catalogs: RIM, *Activity Types Register* and *OSPD Activity Types Register*.
 - *Traces:* a `prov:Activity` is typed with the IRI of the most specific type that applies (`rdf:type`); queries can climb to the generic type through `skos:broader`.
 
@@ -43,12 +44,13 @@ Example: project *Acme* defines `acme-flood-extent`.
    ```
 
    To publish into the shared Prez, add the `sparql:` section (push endpoint, an own `graph`, `resources.data: true`) and the `sparql_username`/`sparql_password` secrets.
-2. **Add a root block** (`_sources/core/`) with `isProfileOf: bblocks://ogc.register.activity-types`, a `data.ttl` with the register catalog, and SHACL shapes; copy those of `ospd-activity-types`. Add a second block (`_sources/specific/`, `isProfileOf` the root) for the concept scheme and the types.
-3. **Pick the generic parent** of each type: browse the generic register in the Prez, or its families in `activity-type-register/_sources/generic/<family>/data.ttl`. Prefer the narrowest generic type that is still tool-neutral. If none fits, either leave the type without parent (the shapes only warn) and open a promotion request (section 3), or propose a new generic type.
+2. **Add a root block** (`_sources/core/`) with `isProfileOf: bblocks://ogc.register.profiles.activity-types`, a `data.ttl` with the register catalog, and SHACL shapes; copy those of `ospd-activity-types`. Add a second block (`_sources/specific/`, `isProfileOf` the root) for the concept scheme and the types.
+3. **Pick the generic parent** of each type: browse the generic register in the Prez, or its families in `activity-type-register/_sources/types/<family>/data.ttl`. Prefer the narrowest generic type that is still tool-neutral. If none fits, either leave the type without parent (the shapes only warn) and open a promotion request (section 3), or propose a new generic type.
 4. **Define the type** in `data.ttl`:
 
    ```turtle
    @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+   @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
    @prefix rim:     <https://w3id.org/ogc/rim/> .
    @prefix acttype: <https://w3id.org/ogc/rim/activity-type/> .
    @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
@@ -60,13 +62,14 @@ Example: project *Acme* defines `acme-flood-extent`.
        skos:prefLabel "Flood extent"@en ;
        skos:definition "Delineates the flooded area from a SAR scene."@en ;
        skos:broader ospd:GA032 ;                    # generic parent: "Raster analysis"
+       rdfs:subClassOf ospd:GA032 ;                 # same parent, for reasoning
        rim:itemClass acttype:activityTypeItemClass ;
        rim:objectIdentifier "https://w3id.org/ogc/acme/activity-type/flood-extent"^^xsd:anyURI ;
        rim:validityStatus rim:valid ;
        rim:publicationStatus rim:published .
    ```
 
-   Required: the two types, `rim:itemClass`, `rim:objectIdentifier` and the two statuses (RIM shapes), `skos:prefLabel` and `skos:inScheme`. Recommended: `skos:definition` and `skos:broader`. Optional: `dcterms:source`, `rdfs:seeAlso`, `prov:qualifiedAttribution`, `skos:closeMatch` to similar types elsewhere.
+   Required: the two types, `rim:itemClass`, `rim:objectIdentifier` and the two statuses (RIM shapes), `skos:prefLabel` and `skos:inScheme`. Recommended: `skos:definition`, and `skos:broader` plus `rdfs:subClassOf` to the generic parent. Optional: `dcterms:source`, `rdfs:seeAlso`, `prov:qualifiedAttribution`, `skos:closeMatch` to similar types elsewhere.
 5. **Choose the URI namespace.** Use the project's own w3id prefix (a pull request to `perma-id/w3id.org`, as done for `/ogc/ospd`). OSPD participants adding types to the OSPD register keep `.../ogc/ospd/activity-type/<slug>`.
 6. **Build and publish.** `./build.sh`, fix validation errors, push to `main`: CI validates, deploys Pages and uploads the data. Cite the new IRI as the `rdf:type` of your `prov:Activity` instances.
 
@@ -75,11 +78,11 @@ Example: project *Acme* defines `acme-flood-extent`.
 *Proposed process, for Rob's review.* A type is a candidate when it is tool-neutral and used, or clearly needed, by more than one project or tool.
 
 1. **Request.** Open an issue or pull request in `activity-type-register` naming the type, its definition, the family it belongs to, and the evidence (the specific types and traces that use it).
-2. **Move it, do not copy it.** Add the concept to `_sources/generic/<family>/data.ttl` and **remove it from the project's `data.ttl`**: one IRI must have one definition.
+2. **Move it, do not copy it.** Add the concept to `_sources/types/<family>/data.ttl` and **remove it from the project's `data.ttl`**: one IRI must have one definition.
    - *Same namespace* (OSPD): the IRI does not change, so existing traces and `skos:broader` links keep working.
    - *Own namespace* (e.g. `acme:`): mint `.../ogc/ospd/activity-type/<slug>` for the generic type, record the old IRI with `dcterms:replaces` and `skos:exactMatch`, and let the project type specialise it (`skos:broader`) or retire it.
    - Drop project-specific detail from the definition; keep the originals as evidence (`dcterms:source`, `skos:narrower` or `skos:closeMatch`).
-3. **New family, if needed.** Create `_sources/generic/<new-family>/` with a `bblock.json` (`isProfileOf: bblocks://ogc.register.generic.core`, a data resource `data.ttl`), a `data.ttl` that defines the `skos:ConceptScheme` `.../activity-type/families/<new-family>` (with `skos:hasTopConcept` / `skos:topConceptOf`) and the concepts, a `description.md` and an `examples.yaml`. Add the scheme to `dcterms:hasPart` of the catalog in `_sources/generic/core/data.ttl`.
+3. **New family, if needed.** Create `_sources/types/<new-family>/` with a `bblock.json` (`isProfileOf: bblocks://ogc.register.types.core`, a data resource `data.ttl`), a `data.ttl` that defines the `skos:ConceptScheme` `.../activity-type/families/<new-family>` (with `skos:hasTopConcept` / `skos:topConceptOf`) and the concepts, a `description.md` and an `examples.yaml`. Add the scheme to `dcterms:hasPart` of the catalog in `_sources/types/core/data.ttl`.
 4. **Merge order.** Generic register first, then the project register, so that `skos:broader` links resolve when both are uploaded. Each upload replaces its graphs, so the removal from the project graph needs no extra step.
 5. **Check.** Both builds pass; the type shows in the new family in the Prez and its former specific siblings link to it.
 
