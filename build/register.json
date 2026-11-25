@@ -1,14 +1,15 @@
 {
   "metaRegistry": "https://w3id.org/ogc/bblocks/meta-register.json",
   "name": "Activity Type Register",
-  "abstract": "A general-purpose, engine- and format-agnostic vocabulary of Generic Profiles, \nindependent of any one project. \nA Generic Profile gives one or more related operations an abstract I/O signature (named roles and abstract types, no format, no size limit)\n",
-  "description": "The profiles in this register are implemented as classes of the Registered Item Model, which lives in a separate [register](https://ogcincubator.github.io/registered-item-model/). \nThe intent for this register is to be the genereric 'top level' register that federated registers can inherit from for specific activity profiles in the respective domains.\n",
-  "modified": "2026-11-12T11:51:21.318847",
+  "abstract": "A register of generic activity types, implemented as a profile of the Registered Item Model: the activity type,\ngeoprocessing and machine learning profiles, and the generic activity types grouped into families.\n",
+  "description": "The profiles in this register are implemented as classes of the Registered Item Model, which lives in a separate [register](https://ogcincubator.github.io/registered-item-model/). \nThe intent for this register is to be the generic 'top level' register that federated registers can inherit from for specific activity profiles in the respective domains.\nThe generic activity types live under `https://w3id.org/ogc/ospd/activity-type/`; federated registers, such as the\n[OSPD activity types register](https://ogcincubator.github.io/ospd-activity-types/), specialise them with `skos:broader`.\n",
+  "sparqlEndpoint": "https://defs-hosted.opengis.net/fuseki-ospd/query",
+  "modified": "2026-11-25T10:13:23.549285",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"2deb5c60331691186d997e4f6ae9aab18b548ce5",
-      "shortCommitId": "\"2deb5c",
-      "date": "2026-11-09T12:20:47+00:00\""
+      "commitId": "\"009466f93d27bf23cb4832f43883f4f524ab5d30",
+      "shortCommitId": "\"009466",
+      "date": "2026-11-24T22:38:04+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/activity-type-register",
@@ -71,7 +72,7 @@
         "plan"
       ],
       "dateTimeAddition": "2026-09-23T00:00:00Z",
-      "dateOfLastChange": "2026-11-04",
+      "dateOfLastChange": "2026-11-25",
       "ontology": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/activity-types/ontology.ttl",
       "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/",
       "validationPassed": true,
@@ -88,6 +89,68 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.activity-types"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.core",
+      "name": "Generic Activity Types",
+      "abstract": "The catalog of the generic activity types: one concept scheme per family of related types, under https://w3id.org/ogc/ospd/activity-type/.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "provenance",
+        "register"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.activity-types"
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/data.ttl",
+          "format": "text/turtle",
+          "title": "Activity Types Register catalog"
+        }
+      ],
+      "dependsOn": [
+        "bblocks://ogc.register.activity-types"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/core/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/core/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/core/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.core"
         }
       }
     },
@@ -143,7 +206,7 @@
         "register"
       ],
       "dateTimeAddition": "2026-09-23T00:00:00Z",
-      "dateOfLastChange": "2026-11-04",
+      "dateOfLastChange": "2026-11-25",
       "ontology": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/geoprocessing-activity-types/ontology.ttl",
       "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/geoprocessing-activity-types/",
       "validationPassed": true,
@@ -160,6 +223,494 @@
         "bblocks-viewer": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.geoprocessing-activity-types"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.earth-observation",
+      "name": "Earth observation",
+      "abstract": "Earth-observation data access and applications: Sentinel-2 band retrieval and product selection, cloud and best-available-pixel handling, and the water-bodies, algae-bloom and mangrove-biomass workflows.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "earth-observation"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/earth-observation/data.ttl",
+          "format": "text/turtle",
+          "title": "Earth observation: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/earth-observation/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/earth-observation/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/earth-observation/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/earth-observation/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.earth-observation"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.information-extraction-and-retrieval",
+      "name": "Information extraction and retrieval",
+      "abstract": "Source acquisition, text metadata enrichment (entity extraction, geotagging, classification, normalization) and retrieval-augmented generation.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "information-extraction-and-retrieval"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/information-extraction-and-retrieval/data.ttl",
+          "format": "text/turtle",
+          "title": "Information extraction and retrieval: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/information-extraction-and-retrieval/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/information-extraction-and-retrieval/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/information-extraction-and-retrieval/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/information-extraction-and-retrieval/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.information-extraction-and-retrieval"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.ml-and-statistical-modeling",
+      "name": "Machine learning and statistical modeling",
+      "abstract": "Machine-learning and statistical activities: regression, climate-variable downscaling, super-resolution and trend analysis, and inference executions.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "ml-and-statistical-modeling"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/ml-and-statistical-modeling/data.ttl",
+          "format": "text/turtle",
+          "title": "Machine learning and statistical modeling: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/ml-and-statistical-modeling/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/ml-and-statistical-modeling/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/ml-and-statistical-modeling/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/ml-and-statistical-modeling/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.ml-and-statistical-modeling"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.point-cloud-processing",
+      "name": "Point-cloud processing",
+      "abstract": "Point-cloud thinning, gridding and conversion to shapes.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "point-cloud-processing"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/point-cloud-processing/data.ttl",
+          "format": "text/turtle",
+          "title": "Point-cloud processing: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/point-cloud-processing/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/point-cloud-processing/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/point-cloud-processing/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/point-cloud-processing/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.point-cloud-processing"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.raster-coverage-processing",
+      "name": "Raster and coverage processing",
+      "abstract": "Operations on rasters and coverages: reprojection, resampling, cropping, mosaicking, format conversion, rendering, band math, spectral indices and zonal analysis.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "raster-coverage-processing"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/raster-coverage-processing/data.ttl",
+          "format": "text/turtle",
+          "title": "Raster and coverage processing: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/raster-coverage-processing/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/raster-coverage-processing/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/raster-coverage-processing/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/raster-coverage-processing/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.raster-coverage-processing"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.spatial-indexing",
+      "name": "Spatial indexing",
+      "abstract": "Discrete global grid system (DGGS) indexing and conversion of geometries to grid cells.",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "spatial-indexing"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/spatial-indexing/data.ttl",
+          "format": "text/turtle",
+          "title": "Spatial indexing: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/spatial-indexing/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/spatial-indexing/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/spatial-indexing/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/spatial-indexing/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.spatial-indexing"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.terrain-and-hydrology",
+      "name": "Terrain and hydrology",
+      "abstract": "Terrain derivatives (slope, hillshading, ruggedness and position indices) and hydrological analysis (flow direction and accumulation, watersheds, stream networks, wetness index).",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "terrain-and-hydrology"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/terrain-and-hydrology/data.ttl",
+          "format": "text/turtle",
+          "title": "Terrain and hydrology: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/terrain-and-hydrology/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/terrain-and-hydrology/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/terrain-and-hydrology/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/terrain-and-hydrology/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.terrain-and-hydrology"
+        }
+      }
+    },
+    {
+      "itemIdentifier": "ogc.register.generic.vector-geometry-processing",
+      "name": "Vector geometry processing",
+      "abstract": "Operations and tests on vector geometries: buffers, hulls, envelopes, set operations, spatial predicates and extents (including the SQL/MM implementations).",
+      "highlighted": true,
+      "status": "under-development",
+      "dateTimeAddition": "2026-11-23T00:00:00Z",
+      "itemClass": "model",
+      "version": "0.1",
+      "tags": [
+        "activity-type",
+        "vector-geometry-processing"
+      ],
+      "group": "Activity Types Register",
+      "isProfileOf": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "resources": [
+        {
+          "role": "data",
+          "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/vector-geometry-processing/data.ttl",
+          "format": "text/turtle",
+          "title": "Vector geometry processing: generic activity type definitions"
+        }
+      ],
+      "shaclShapes": {
+        "ogc.register.generic.core": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+        ],
+        "ogc.register.activity-types": [
+          "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+        ],
+        "ogc.model.cross-domain.prov": [
+          "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+        ],
+        "ogc.rim.core-ontology": [
+          "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+        ]
+      },
+      "dependsOn": [
+        "bblocks://ogc.register.generic.core"
+      ],
+      "dateOfLastChange": "2026-11-25",
+      "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/vector-geometry-processing/",
+      "validationPassed": true,
+      "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/vector-geometry-processing/",
+      "documentation": {
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/markdown/register/generic/vector-geometry-processing/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/generateddocs/json-full/register/generic/vector-geometry-processing/index.json"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/activity-type-register/bblock/ogc.register.generic.vector-geometry-processing"
         }
       }
     },
@@ -226,10 +777,10 @@
         "activity type"
       ],
       "dateTimeAddition": "2026-09-17T00:00:00Z",
-      "dateOfLastChange": "2026-11-04",
+      "dateOfLastChange": "2026-11-25",
       "ontology": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/st-ml-activity-types/ontology.ttl",
       "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/st-ml-activity-types/",
-      "validationPassed": false,
+      "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/st-ml-activity-types/",
       "documentation": {
         "markdown": {
@@ -286,7 +837,7 @@
         "schema"
       ],
       "dateTimeAddition": "2026-10-30T00:00:00Z",
-      "dateOfLastChange": "2026-11-04",
+      "dateOfLastChange": "2026-11-25",
       "shaclShapes": {
         "ogc.register.activity-types": [
           "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
@@ -362,7 +913,7 @@
         "register"
       ],
       "dateTimeAddition": "2026-09-23T00:00:00Z",
-      "dateOfLastChange": "2026-11-04",
+      "dateOfLastChange": "2026-11-25",
       "shaclShapes": {
         "ogc.register.geoprocessing-activity-types": [
           "https://ogcincubator.github.io/activity-type-register/_sources/geoprocessing-activity-types/shapes.shacl"
@@ -445,7 +996,7 @@
         "activity type"
       ],
       "dateTimeAddition": "2026-09-17T00:00:00Z",
-      "dateOfLastChange": "2026-11-04",
+      "dateOfLastChange": "2026-11-25",
       "shaclShapes": {
         "ogc.register.geoprocessing-activity-types": [
           "https://ogcincubator.github.io/activity-type-register/_sources/geoprocessing-activity-types/shapes.shacl"

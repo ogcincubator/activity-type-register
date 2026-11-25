@@ -23,10 +23,10 @@ which of the model's declared `mlm:ModelInput`/`mlm:ModelOutput` specifications 
 ex:landCoverModel a stac:Item ;
     mlm:name "Land Cover Classifier" ;
     mlm:architecture "U-Net" ;
-    mlm:performsTask mlm:semantic-segmentation ;
+    mlm:tasks ( mlm:semantic-segmentation ) ;
     mlm:framework "PyTorch" ;
-    mlm:ActivityInput ex:landCoverInputSpec ;
-    mlm:ActivityOutput ex:landCoverOutputSpec .
+    mlm:input ( ex:landCoverInputSpec ) ;
+    mlm:output ( ex:landCoverOutputSpec ) .
 
 ex:landCoverInputSpec a mlm:ModelInput ;
     mlm:io_name "sentinel2_bands" ;

@@ -22,7 +22,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.register.schemas.st-ml-activity-types-schema
   register: https://ogcincubator.github.io/activity-type-register/build/register.json
   version: '0.3'
-  dateOfLastChange: '2026-11-04'
+  dateOfLastChange: '2026-11-25'
 
 ```
 

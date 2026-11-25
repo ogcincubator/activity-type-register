@@ -1,0 +1,66 @@
+
+
+{
+  "itemIdentifier": "ogc.register.generic.vector-geometry-processing",
+  "name": "Vector geometry processing",
+  "abstract": "Operations and tests on vector geometries: buffers, hulls, envelopes, set operations, spatial predicates and extents (including the SQL/MM implementations).",
+  "highlighted": true,
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-23T00:00:00Z",
+  "itemClass": "model",
+  "version": "0.1",
+  "tags": [
+    "activity-type",
+    "vector-geometry-processing"
+  ],
+  "group": "Activity Types Register",
+  "isProfileOf": [
+    "ogc.register.generic.core"
+  ],
+  "resources": [
+    {
+      "role": "data",
+      "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/vector-geometry-processing/data.ttl",
+      "format": "text/turtle",
+      "title": "Vector geometry processing: generic activity type definitions"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.register.generic.core": [
+      "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+    ],
+    "ogc.register.activity-types": [
+      "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.rim.core-ontology": [
+      "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.register.generic.core"
+  ],
+  "dateOfLastChange": "2026-11-25",
+  "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/vector-geometry-processing/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/vector-geometry-processing/",
+  "description": "# Vector geometry processing\n\nOperations and tests on vector geometries: buffers, hulls, envelopes, set operations, spatial predicates and extents (including the SQL/MM implementations).\n\nThis family has 25 generic activity types. It is a profile of the Generic Activity Types block and its data resource\n(`data.ttl`) is uploaded to the OSPD Prez instance when the register is built.\n\n## Activity types\n\n- [Area](https://w3id.org/ogc/ospd/activity-type/area) (`area`)\n- [Boundary](https://w3id.org/ogc/ospd/activity-type/GA002) (`GA002`)\n- [Bounding Circle](https://w3id.org/ogc/ospd/activity-type/GA004) (`GA004`)\n- [Buffer](https://w3id.org/ogc/ospd/activity-type/GA001) (`GA001`)\n- [Buffer](https://w3id.org/ogc/ospd/activity-type/buffer) (`buffer`)\n- [Centroid](https://w3id.org/ogc/ospd/activity-type/centroid) (`centroid`)\n- [Concave Hull](https://w3id.org/ogc/ospd/activity-type/GA005) (`GA005`)\n- [Contains](https://w3id.org/ogc/ospd/activity-type/contains) (`contains`)\n- [Convex Hull](https://w3id.org/ogc/ospd/activity-type/GA006) (`GA006`)\n- [Convex hull](https://w3id.org/ogc/ospd/activity-type/convex-hull) (`convex-hull`)\n- [Crosses](https://w3id.org/ogc/ospd/activity-type/crosses) (`crosses`)\n- [Difference](https://w3id.org/ogc/ospd/activity-type/GA019) (`GA019`)\n- [Difference](https://w3id.org/ogc/ospd/activity-type/difference) (`difference`)\n- [Disjoint](https://w3id.org/ogc/ospd/activity-type/disjoint) (`disjoint`)\n- [Envelope](https://w3id.org/ogc/ospd/activity-type/GA003) (`GA003`)\n- [Equals](https://w3id.org/ogc/ospd/activity-type/equals) (`equals`)\n- [Filter geometries](https://w3id.org/ogc/ospd/activity-type/GA020) (`GA020`)\n- [Geometry extent](https://w3id.org/ogc/ospd/activity-type/geometry-extent) (`geometry-extent`)\n- [Intersection](https://w3id.org/ogc/ospd/activity-type/intersection) (`intersection`)\n- [Intersects](https://w3id.org/ogc/ospd/activity-type/intersects) (`intersects`)\n- [Is simple](https://w3id.org/ogc/ospd/activity-type/is-simple) (`is-simple`)\n- [Symmetric difference](https://w3id.org/ogc/ospd/activity-type/symdifference) (`symdifference`)\n- [Touches](https://w3id.org/ogc/ospd/activity-type/touches) (`touches`)\n- [Union](https://w3id.org/ogc/ospd/activity-type/union) (`union`)\n- [Within](https://w3id.org/ogc/ospd/activity-type/within) (`within`)\n",
+  "examples": [
+    {
+      "title": "Area",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/tests/register/generic/vector-geometry-processing/example_1_1.ttl",
+          "sizeBytes": 1308,
+          "code": "@prefix acttype: <https://w3id.org/ogc/rim/activity-type/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ospd: <https://w3id.org/ogc/ospd/activity-type/> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix rim: <https://w3id.org/ogc/rim/> .\n@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\nospd:area a skos:Concept,\n        acttype:ActivityType ;\n    dcterms:replaces <https://w3id.org/geolabs/ospd/generic-profiles/activity-type/area> ;\n    dcterms:source [ ],\n        [ ] ;\n    rdfs:subClassOf <https://w3id.org/ogc/rim/geoprocessing/GeoprocessingActivityType> ;\n    skos:definition \"The area of this Surface, as measured in the spatial reference system of this Surface.\"@en ;\n    skos:inScheme <https://w3id.org/ogc/ospd/activity-type/families/vector-geometry-processing> ;\n    skos:prefLabel \"Area\"@en ;\n    skos:topConceptOf <https://w3id.org/ogc/ospd/activity-type/families/vector-geometry-processing> ;\n    rim:itemClass acttype:activityTypeItemClass ;\n    rim:objectIdentifier \"https://w3id.org/ogc/ospd/activity-type/area\"^^xsd:anyURI ;\n    rim:publicationStatus rim:published ;\n    rim:validityStatus rim:valid .\n\n<https://w3id.org/ogc/ospd/activity-type/families/vector-geometry-processing> a skos:ConceptScheme .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/activity-type-register",
+  "gitPath": "_sources/generic/vector-geometry-processing"
+}

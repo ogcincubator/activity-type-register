@@ -49,7 +49,7 @@
     "plan"
   ],
   "dateTimeAddition": "2026-09-23T00:00:00Z",
-  "dateOfLastChange": "2026-11-04",
+  "dateOfLastChange": "2026-11-25",
   "ontology": "https://ogcincubator.github.io/activity-type-register/build/annotated/register/activity-types/ontology.ttl",
   "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/",
   "validationPassed": true,
