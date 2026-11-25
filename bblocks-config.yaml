@@ -3,14 +3,15 @@ name: Activity Type Register
 
 # Short abstract for this collection (optional)
 abstract: |
-  A general-purpose, engine- and format-agnostic vocabulary of Generic Profiles, 
-  independent of any one project. 
-  A Generic Profile gives one or more related operations an abstract I/O signature (named roles and abstract types, no format, no size limit)
+  A register of generic activity types, implemented as a profile of the Registered Item Model: the activity type,
+  geoprocessing and machine learning profiles, and the generic activity types grouped into families.
 
 # Description for this collection (optional)
 description: |
   The profiles in this register are implemented as classes of the Registered Item Model, which lives in a separate [register](https://ogcincubator.github.io/registered-item-model/). 
-  The intent for this register is to be the genereric 'top level' register that federated registers can inherit from for specific activity profiles in the respective domains.
+  The intent for this register is to be the generic 'top level' register that federated registers can inherit from for specific activity profiles in the respective domains.
+  The generic activity types live under `https://w3id.org/ogc/ospd/activity-type/`; federated registers, such as the
+  [OSPD activity types register](https://ogcincubator.github.io/ospd-activity-types/), specialise them with `skos:broader`.
 
 
 # Customize the following prefix (will be prepended to the path of the building blocks):
@@ -64,13 +65,13 @@ schema-oas30-downcompile: False
 #   Authentication can be set through the sparql_username and sparql_password GitHub Workflow inputs
 #   (see .github/workflow/process-bblocks.yml)
 #
-# sparql:
-#   push: https://example.com/gsp           # SPARQL Graph Store Protocol endpoint for uploading data
-#   graph: https://my.bblocks.example.com/  # SPARQL Graph where data will be uploaded
-#                                           #  if left empty, the base URL for the publication will be used
-#   query: https://example.com/sparql       # SPARQL query endpoint where data will be available
-#   resources:                              # Additional resources to upload apart from building block metadata
-#      ontologies: true                     #   Whether to upload ontology files to the triplestore
+sparql:
+  push: https://defs-hosted.opengis.net/fuseki-ospd/data   # SPARQL Graph Store Protocol endpoint
+  query: https://defs-hosted.opengis.net/fuseki-ospd/query
+  graph: https://w3id.org/ogc/ospd/activity-type/register   # graph for the register (building block metadata)
+  resources:
+    ontologies: true   # ontology files of each block
+    data: true         # RDF data resources of each block (catalog, generic activity types), in urn:ogc:bblocks/<id>/data
 
 # External transformer/validator plugins (optional)
 #   Each entry installs its pip dependencies into a sandbox and imports the given modules,

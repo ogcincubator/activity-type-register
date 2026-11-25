@@ -1,0 +1,22 @@
+@prefix acttype: <https://w3id.org/ogc/rim/activity-type/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ospd: <https://w3id.org/ogc/ospd/activity-type/> .
+@prefix rim: <https://w3id.org/ogc/rim/> .
+
+ospd:catalog a dcat:Catalog ;
+    dcterms:description "Generic activity types, grouped into families of related types (each family is a concept scheme), with the Registered Item Model profiles for activity types, geoprocessing and machine learning that they are described with. Federated registers, such as the OSPD activity types register, specialise these types."@en ;
+    dcterms:hasPart <https://w3id.org/ogc/ospd/activity-type/families/earth-observation>,
+        <https://w3id.org/ogc/ospd/activity-type/families/information-extraction-and-retrieval>,
+        <https://w3id.org/ogc/ospd/activity-type/families/ml-and-statistical-modeling>,
+        <https://w3id.org/ogc/ospd/activity-type/families/point-cloud-processing>,
+        <https://w3id.org/ogc/ospd/activity-type/families/raster-coverage-processing>,
+        <https://w3id.org/ogc/ospd/activity-type/families/spatial-indexing>,
+        <https://w3id.org/ogc/ospd/activity-type/families/terrain-and-hydrology>,
+        <https://w3id.org/ogc/ospd/activity-type/families/vector-geometry-processing>,
+        acttype:,
+        <https://w3id.org/ogc/rim/geoprocessing/>,
+        <https://w3id.org/ogc/rim/ml-activity/> ;
+    dcterms:references rim:catalog ;
+    dcterms:title "Activity Types Register"@en .
+
