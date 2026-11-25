@@ -63,10 +63,23 @@ ospd:GA017 a skos:Concept,
     rim:publicationStatus rim:published ;
     rim:validityStatus rim:valid .
 
+ospd:model-inference a skos:Concept,
+        acttype:ActivityType ;
+    skos:definition "Applies a trained model to input data to produce predictions or derived data; the counterpart of model training."@en ;
+    skos:inScheme <https://w3id.org/ogc/ospd/activity-type/families/ml-and-statistical-modeling> ;
+    skos:note "Proposed generic type, introduced to give specific types a parent; not derived from a source definition."@en ;
+    skos:prefLabel "Model inference"@en ;
+    skos:topConceptOf <https://w3id.org/ogc/ospd/activity-type/families/ml-and-statistical-modeling> ;
+    rim:itemClass acttype:activityTypeItemClass ;
+    rim:objectIdentifier "https://w3id.org/ogc/ospd/activity-type/model-inference"^^xsd:anyURI ;
+    rim:publicationStatus rim:published ;
+    rim:validityStatus rim:valid .
+
 <https://w3id.org/ogc/ospd/activity-type/families/ml-and-statistical-modeling> a skos:ConceptScheme ;
     skos:definition "Machine-learning and statistical activities: regression, climate-variable downscaling, super-resolution and trend analysis, and inference executions."@en ;
     skos:hasTopConcept ospd:GA007,
         ospd:GA009,
-        ospd:GA017 ;
+        ospd:GA017,
+        ospd:model-inference ;
     skos:prefLabel "ML and statistical modeling"@en .
 

@@ -21,3 +21,4 @@ records the IRIs it replaces (`dcterms:replaces`), equivalent aliases (`skos:exa
 - **Point-cloud processing** (`ogc.register.generic.point-cloud-processing`): Point-cloud thinning, gridding and conversion to shapes.
 - **Machine learning and statistical modeling** (`ogc.register.generic.ml-and-statistical-modeling`): Machine-learning and statistical activities: regression, climate-variable downscaling, super-resolution and trend analysis, and inference executions.
 - **Information extraction and retrieval** (`ogc.register.generic.information-extraction-and-retrieval`): Source acquisition, text metadata enrichment (entity extraction, geotagging, classification, normalization) and retrieval-augmented generation.
+- **Workflow and scoring** (`ogc.register.generic.workflow-and-scoring`): Workflow runs and scoring or classification activities used in the model-of-models and workflow examples.

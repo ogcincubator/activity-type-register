@@ -14,6 +14,7 @@ ospd:catalog a dcat:Catalog ;
         <https://w3id.org/ogc/ospd/activity-type/families/spatial-indexing>,
         <https://w3id.org/ogc/ospd/activity-type/families/terrain-and-hydrology>,
         <https://w3id.org/ogc/ospd/activity-type/families/vector-geometry-processing>,
+        <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring>,
         acttype:,
         <https://w3id.org/ogc/rim/geoprocessing/>,
         <https://w3id.org/ogc/rim/ml-activity/> ;

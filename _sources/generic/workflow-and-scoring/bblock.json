@@ -1,0 +1,23 @@
+{
+  "name": "Workflow and scoring",
+  "abstract": "Workflow runs and scoring or classification activities used in the model-of-models and workflow examples.",
+  "highlighted": true,
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-23T00:00:00Z",
+  "itemClass": "model",
+  "version": "0.1",
+  "tags": [
+    "activity-type",
+    "workflow-and-scoring"
+  ],
+  "group": "Activity Types Register",
+  "isProfileOf": "bblocks://ogc.register.generic.core",
+  "resources": [
+    {
+      "role": "data",
+      "ref": "data.ttl",
+      "format": "text/turtle",
+      "title": "Workflow and scoring: generic activity type definitions"
+    }
+  ]
+}

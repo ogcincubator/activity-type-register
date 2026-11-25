@@ -1,0 +1,36 @@
+@prefix acttype: <https://w3id.org/ogc/rim/activity-type/> .
+@prefix ospd: <https://w3id.org/ogc/ospd/activity-type/> .
+@prefix rim: <https://w3id.org/ogc/rim/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ospd:catalog-export a skos:Concept,
+        acttype:ActivityType ;
+    skos:definition "Assembles the results of an analysis into a catalog of items with their assets, for example a STAC Catalog."@en ;
+    skos:inScheme <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> ;
+    skos:note "Proposed generic type, introduced to give specific types a parent; not derived from a source definition."@en ;
+    skos:prefLabel "Catalog export"@en ;
+    skos:topConceptOf <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> ;
+    rim:itemClass acttype:activityTypeItemClass ;
+    rim:objectIdentifier "https://w3id.org/ogc/ospd/activity-type/catalog-export"^^xsd:anyURI ;
+    rim:publicationStatus rim:published ;
+    rim:validityStatus rim:valid .
+
+ospd:workflow a skos:Concept,
+        acttype:ActivityType ;
+    skos:definition "Orchestrates several activities, each consuming the outputs of earlier ones, as one executable whole. One execution of it is a workflow run."@en ;
+    skos:inScheme <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> ;
+    skos:note "Proposed generic type, introduced to give specific types a parent; not derived from a source definition."@en ;
+    skos:prefLabel "Workflow"@en ;
+    skos:topConceptOf <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> ;
+    rim:itemClass acttype:activityTypeItemClass ;
+    rim:objectIdentifier "https://w3id.org/ogc/ospd/activity-type/workflow"^^xsd:anyURI ;
+    rim:publicationStatus rim:published ;
+    rim:validityStatus rim:valid .
+
+<https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> a skos:ConceptScheme ;
+    skos:definition "Workflow runs and scoring or classification activities used in the model-of-models and workflow examples."@en ;
+    skos:hasTopConcept ospd:catalog-export,
+        ospd:workflow ;
+    skos:prefLabel "Workflow and scoring"@en .
+
