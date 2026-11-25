@@ -78,6 +78,12 @@ Terrain derivatives (slope, hillshading, ruggedness and position indices) and hy
 
 Operations and tests on vector geometries: buffers, hulls, envelopes, set operations, spatial predicates and extents (including the SQL/MM implementations).
 
+### `ogc.register.generic.workflow-and-scoring` — Workflow and scoring
+
+**Type:** model
+
+Workflow runs and scoring or classification activities used in the model-of-models and workflow examples.
+
 ### `ogc.register.st-ml-activity-types` — SpatioTemporal ML Activity Types Profile
 
 **Type:** model

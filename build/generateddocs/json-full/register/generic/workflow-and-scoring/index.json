@@ -1,0 +1,66 @@
+
+
+{
+  "itemIdentifier": "ogc.register.generic.workflow-and-scoring",
+  "name": "Workflow and scoring",
+  "abstract": "Workflow runs and scoring or classification activities used in the model-of-models and workflow examples.",
+  "highlighted": true,
+  "status": "under-development",
+  "dateTimeAddition": "2026-11-23T00:00:00Z",
+  "itemClass": "model",
+  "version": "0.1",
+  "tags": [
+    "activity-type",
+    "workflow-and-scoring"
+  ],
+  "group": "Activity Types Register",
+  "isProfileOf": [
+    "ogc.register.generic.core"
+  ],
+  "resources": [
+    {
+      "role": "data",
+      "ref": "https://ogcincubator.github.io/activity-type-register/_sources/generic/workflow-and-scoring/data.ttl",
+      "format": "text/turtle",
+      "title": "Workflow and scoring: generic activity type definitions"
+    }
+  ],
+  "shaclShapes": {
+    "ogc.register.generic.core": [
+      "https://ogcincubator.github.io/activity-type-register/_sources/generic/core/shapes.shacl"
+    ],
+    "ogc.register.activity-types": [
+      "https://ogcincubator.github.io/activity-type-register/_sources/activity-types/shapes.shacl"
+    ],
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ],
+    "ogc.rim.core-ontology": [
+      "https://ogcincubator.github.io/registered-item-model/_sources/core-ontology/shapes.shacl"
+    ]
+  },
+  "dependsOn": [
+    "ogc.register.generic.core"
+  ],
+  "dateOfLastChange": "2026-11-25",
+  "sourceFiles": "https://ogcincubator.github.io/activity-type-register/_sources/generic/workflow-and-scoring/",
+  "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/activity-type-register/blob/master/build/tests/register/generic/workflow-and-scoring/",
+  "description": "# Workflow and scoring\n\nWorkflow runs and scoring or classification activities used in the model-of-models and workflow examples.\n\nThis family has 2 generic activity types. It is a profile of the Generic Activity Types block and its data resource\n(`data.ttl`) is uploaded to the OSPD Prez instance when the register is built.\n\n## Activity types\n\n- [Catalog export](https://w3id.org/ogc/ospd/activity-type/catalog-export) (`catalog-export`)\n- [Workflow](https://w3id.org/ogc/ospd/activity-type/workflow) (`workflow`)\n",
+  "examples": [
+    {
+      "title": "Catalog export",
+      "snippets": [
+        {
+          "language": "turtle",
+          "url": "https://ogcincubator.github.io/activity-type-register/build/tests/register/generic/workflow-and-scoring/example_1_1.ttl",
+          "sizeBytes": 1146,
+          "code": "@prefix acttype: <https://w3id.org/ogc/rim/activity-type/> .\n@prefix ospd: <https://w3id.org/ogc/ospd/activity-type/> .\n@prefix rim: <https://w3id.org/ogc/rim/> .\n@prefix skos: <http://www.w3.org/2004/02/skos/core#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\nospd:catalog-export a skos:Concept,\n        acttype:ActivityType ;\n    skos:definition \"Assembles the results of an analysis into a catalog of items with their assets, for example a STAC Catalog.\"@en ;\n    skos:inScheme <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> ;\n    skos:note \"Proposed generic type, introduced to give specific types a parent; not derived from a source definition.\"@en ;\n    skos:prefLabel \"Catalog export\"@en ;\n    skos:topConceptOf <https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> ;\n    rim:itemClass acttype:activityTypeItemClass ;\n    rim:objectIdentifier \"https://w3id.org/ogc/ospd/activity-type/catalog-export\"^^xsd:anyURI ;\n    rim:publicationStatus rim:published ;\n    rim:validityStatus rim:valid .\n\n<https://w3id.org/ogc/ospd/activity-type/families/workflow-and-scoring> a skos:ConceptScheme .\n"
+        }
+      ]
+    }
+  ],
+  "annotatedSchema": null,
+  "gitRepository": "https://github.com/ogcincubator/activity-type-register",
+  "gitPath": "_sources/generic/workflow-and-scoring"
+}
